@@ -1,7 +1,7 @@
 ## CS-23.202
 [program-1 WAP for Array_test](##assi-1)
 
-##assi-1
+## assi-1
 ```
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
