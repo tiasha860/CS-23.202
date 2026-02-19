@@ -1,5 +1,5 @@
 ## CS-23.202
-[program-1 WAP for Array_test](##assi-1)
+[program-1 WAP for Array_test](#assi-1)
 
 ## assi-1
 ```
