@@ -1,77 +1,116 @@
-## CS-23.202
-[program-1 WAP for Array_test](#assi-1)
+# CS-23.202
+[Program-1 Collect any 5 codes in C language like factorial ,armstrong,palindrome etc and convert them in object oriented in java and test the result in the main]
+## Assighnment-1
+***
 
-## assi-1
-```
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-
+import java.util.Scanner;
 /**
  *
- * @author IBM5
+ * @author tiash
  */
-import java.util.Scanner;
+public class AllProgram {
 
-public class Array_test {
-    
-           
- 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
+     
+     Operations obj = new Operations();
+
+        obj.factorial();
+        obj.armstrong();
+        obj.swap();
+        obj.reverse();
+        obj.prime();
     }
-    
 }
-class at{
-    int arr[];
-    int rev[];
-    
-    
-    void input(){
-        arr= new int[5];
-        Scanner sc=new Scanner(System.in);
-        System.out.println("enter 5 elements");
-        for(int i=0;i<=4;i++){
-            arr[i]=sc.nextInt();
+
+class Operations {
+
+    Scanner sc = new Scanner(System.in);
+
+    void factorial() {
+        System.out.println("\n--- Factorial ---");
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int fact = 1;
+        for(int i=1; i<=n; i++)
+            fact *= i;
+
+        System.out.println("Factorial = " + fact);
+    }
+
+    void armstrong() {
+        System.out.println("\n--- Armstrong ---");
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int sum = 0, r, temp = n;
+
+        while(n > 0) {
+            r = n % 10;
+            sum += r*r*r;
+            n /= 10;
         }
-        
+
+        if(sum == temp)
+            System.out.println("Armstrong number");
+        else
+            System.out.println("Not Armstrong");
     }
-    void output(){
-        System.out.println("Array:");
-        for (int i= 0; i<5; i++){
-            System.out.print(arr[i] +" ");
+
+    void swap() {
+        System.out.println("\n--- Swap ---");
+        System.out.print("Enter two numbers: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println("After swap: a=" + a + " b=" + b);
     }
-        System.out.println();
-    
+
+    void reverse() {
+        System.out.println("\n--- Reverse Number ---");
+        System.out.print("Enter numbers: ");
+        int n = sc.nextInt();
+
+        int rev = 0, r;
+
+        while(n > 0) {
+            r = n % 10;
+            rev = rev * 10 + r;
+            n /= 10;
+        }
+
+        System.out.println("Reverse = " + rev);
+    }
+
+    void prime() {
+        System.out.println("\n--- Prime Number ---");
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int flag = 1;
+
+        for(int i=2; i<=n/2; i++) {
+            if(n % i == 0) {
+                flag = 0;
+                break;
+            }
+        }
+
+        if(flag == 1 && n > 1)
+            System.out.println("Prime number");
+        else
+            System.out.println("Not Prime");
+    }
 }
     
- void reverse(){
-     for(int i=0;i<5;i++){
-         rev[4-i]= arr[i];
-         
-     }
- }
-    
+ ***   
 
-}
-```
-
-<img width="1257" height="442" alt="image" src="https://github.com/user-attachments/assets/417a737e-38a8-40ae-8136-1ed5b3dfcf2f" />
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="664" height="517" alt="image" src="https://github.com/user-attachments/assets/80c6220a-97c2-415c-a539-82f7c4a71461" />
 
