@@ -1,5 +1,15 @@
 # CS-23.202
 [Program-1 Collect any 5 codes in C language like factorial ,armstrong,palindrome etc and convert them in object oriented in java and test the result in the main](#Assignment-1)
+
+[Program 2-Write a class to reverse an 1D array with necessary methods](#Assignment-2)
+
+
+
+
+
+
+
+
 ## Assighnment-1
 ***
 
@@ -115,7 +125,7 @@ class Operations {
 <img width="664" height="517" alt="image" src="https://github.com/user-attachments/assets/80c6220a-97c2-415c-a539-82f7c4a71461" />
 
 
-[Program 2-Write a class to reverse an 1D array with necessary methods](#Assignment-2)
+
 
 ## Assighnment-2
 ***
