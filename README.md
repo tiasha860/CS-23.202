@@ -3,6 +3,7 @@
 
 [Program 2-Write a class to reverse an 1D array with necessary methods](#Assignment-2)
 
+[Program3-Write a class for addition of two distances where each distance is given in m, cm and mm](#Assignment-3)
 
 
 
@@ -187,6 +188,67 @@ class Array1D {
  <img width="691" height="478" alt="image" src="https://github.com/user-attachments/assets/9c11c8ea-5813-435c-8f82-65544539b431" />
    
 
+## Assighnment-3
+***
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class Dist2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Distance d1 = new Distance();
+        Distance d2 = new Distance();
+        Distance d3 = new Distance();
+
+        d1.input();
+        d2.input();
+
+        d3.add(d1, d2);
+        d3.output();
+    }
+}
+
+class Distance {
+    int m;
+    int cm;
+    int mm;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter meters:");
+        m = sc.nextInt();
+
+        System.out.println("Enter centimeters:");
+        cm = sc.nextInt();
+
+        System.out.println("Enter millimeters:");
+        mm = sc.nextInt();
+    }
+
+    void output() {
+        System.out.println("Result:");
+        System.out.println(m + " m " + cm + " cm " + mm + " mm");
+    }
+
+    void add(Distance o1, Distance o2) {
+
+        mm = o1.mm + o2.mm;
+        cm = o1.cm + o2.cm + (mm / 10);
+        m  = o1.m  + o2.m  + (cm / 100);
+
+        mm = mm % 10;
+        cm = cm % 100;
+    }
+}
+***
+
+<img width="577" height="489" alt="image" src="https://github.com/user-attachments/assets/7da2658e-dbac-4510-ab1e-6c534ff04dd9" />
 
 
 
