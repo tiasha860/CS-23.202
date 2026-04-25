@@ -5,7 +5,7 @@
 
 [Program3-Write a class for addition of two distances where each distance is given in m, cm and mm](#Assignment-3)
 
-
+[Program 4- Write a class for addition of two times where each time is given in hr, min and sec](#Assignment-4)
 
 
 
@@ -251,7 +251,69 @@ class Distance {
 <img width="577" height="489" alt="image" src="https://github.com/user-attachments/assets/7da2658e-dbac-4510-ab1e-6c534ff04dd9" />
 
 
+## Assighnment-4
+***
+import java.util.Scanner;
 
+/**
+ *
+ * @author tiash
+ */
+public class Time2 {
+
+    /**
+     * @param args the command line arguments
+     */
+     public static void main(String[] args) {
+
+        Time t1 = new Time();
+        Time t2 = new Time();
+        Time t3 = new Time();
+
+        t1.input();
+        t2.input();
+
+        t3.add(t1, t2);
+        t3.output();
+    }
+}
+
+class Time {
+    int hr;
+    int min;
+    int sec;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter hours:");
+        hr = sc.nextInt();
+
+        System.out.println("Enter minutes:");
+        min = sc.nextInt();
+
+        System.out.println("Enter seconds:");
+        sec = sc.nextInt();
+    }
+
+    void output() {
+        System.out.println("Result:");
+        System.out.println(hr + " hr " + min + " min " + sec + " sec");
+    }
+
+    void add(Time t1, Time t2) {
+
+        sec = t1.sec + t2.sec;
+        min = t1.min + t2.min + (sec / 60);
+        hr  = t1.hr  + t2.hr  + (min / 60);
+
+        sec = sec % 60;
+        min = min % 60;
+    }
+}
+***
+
+<img width="488" height="453" alt="image" src="https://github.com/user-attachments/assets/b91582c3-44bd-4289-91da-35eb91e5835f" />
 
 
 
