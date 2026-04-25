@@ -13,6 +13,15 @@
 
 [Program 7 -Write a Java program to implement LinkedList and perform insertion at the beginning, middle, and end, along with deletion, searching, and displaying the elements.](#Assignment-7)
 
+[Program 8- Write a Java program to demonstrate Stack operations using the Collection Framework, including push, pop, peek, and checking whether the stack is empty.](#Assignment-8)
+
+[Program 9- Write a Java program to implement HashMap and perform operations such as inserting key-value pairs, retrieving values using keys, removing entries, and iterating through the map.](#Assignment-9)
+
+[Program 10- Write a Java program to demonstrate Hashtable ]
+
+
+
+
 
 ## Assighnment-1
 ***
@@ -438,3 +447,165 @@ public class ArraylistDemo {
 
 ## Assighnment-7
 ***
+import java.util.*;
+
+/**
+ *
+ * @author tiash
+ */
+public class LinkedlistDemo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        
+        LinkedList<String> list = new LinkedList<>();
+
+        
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+
+        
+        list.addFirst("Orange");
+
+        
+        list.add(2, "Grapes");
+
+        System.out.println("After Insertions: " + list);
+
+        
+        list.remove("Banana");   
+        list.remove(1);          
+
+        System.out.println("After Deletions: " + list);
+
+        
+        if (list.contains("Mango")) {
+            System.out.println("Mango is found in the list");
+        } else {
+            System.out.println("Mango not found");
+        }
+
+        
+        System.out.println("Displaying elements:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+***
+
+<img width="493" height="403" alt="image" src="https://github.com/user-attachments/assets/80365944-b391-472b-be96-4020cfb8ef79" />
+
+
+## Assighnment-8
+***
+
+import java.util.*;
+/**
+ *
+ * @author tiash
+ */
+public class StackExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println("Stack: " + stack);
+
+        
+        System.out.println("Top element: " + stack.peek());
+
+        
+        System.out.println("Popped element: " + stack.pop());
+
+        System.out.println("Stack after pop: " + stack);
+
+        
+        if (stack.isEmpty()) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Stack is not empty");
+        }
+    }
+}
+ ***
+<img width="555" height="385" alt="image" src="https://github.com/user-attachments/assets/940b1f84-99c7-4048-9c43-e8328e276442" />
+
+## Assighnment-9
+***
+import java .util.HashMap;
+/**
+ *
+ * @author tiash
+ */
+public class HashMapExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+
+        System.out.println("HashMap: " + map);
+
+        System.out.println("Value for key 2: " + map.get(2));
+
+        map.remove(3);
+        System.out.println("After removal: " + map);
+
+        System.out.println("Iterating elements:");
+        for (Integer key : map.keySet()) {
+            System.out.println(key + " -> " + map.get(key));
+        }
+    }
+}
+***
+
+<img width="518" height="389" alt="image" src="https://github.com/user-attachments/assets/c371072c-c088-4b27-ba37-017dfa30b953" />
+
+## Assighnment-10
+***
+import java.util.Hashtable;
+/**
+ *
+ * @author tiash
+ */
+public class HashtableExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    Hashtable<Integer, String> ht = new Hashtable<>();
+
+        ht.put(10, "A");
+        ht.put(20, "B");
+
+        System.out.println(ht.get(10));    
+    }
+    
+}
+***
+<img width="475" height="434" alt="image" src="https://github.com/user-attachments/assets/60fdd907-94a3-4ee7-87eb-80208e742c57" />
+
+
+
+    
