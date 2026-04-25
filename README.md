@@ -19,8 +19,9 @@
 
 [Program 10- Write a Java program to demonstrate Hashtable ](#Assignment-10)
 
+[Program 11- Implement File transfer/copy in Java using:Byte Stream](#Assignment-11)
 
-
+[Program 12- Implement File transfer/copy in Java using:Character Stream](#Assignment-12)
 
 
 ## Assighnment-1
@@ -604,7 +605,87 @@ public class HashtableExample {
     
 }
 ***
-<img width="475" height="434" alt="image" src="https://github.com/user-attachments/assets/60fdd907-94a3-4ee7-87eb-80208e742c57" />
+<img width="506" height="391" alt="image" src="https://github.com/user-attachments/assets/4cfaf562-6ea7-4e22-8f65-b445c2901f35" />
+
+
+
+## Assighnment-11
+***
+
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class Bytestream {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        try {
+            try ( // Writing
+                    FileOutputStream fos = new FileOutputStream("bytefile.txt")) {
+                fos.write("Tiasha and Sia are best friends".getBytes());
+            }
+
+            try ( // Reading
+                    FileInputStream fis = new FileInputStream("bytefile.txt")) {
+                int b;
+                
+                while ((b = fis.read()) != -1) {
+                    System.out.print((char) b);
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+***
+
+<img width="478" height="290" alt="image" src="https://github.com/user-attachments/assets/2710ffbe-37e2-49cd-b694-44fbc7de09a7" />
+
+
+
+## Assighnment-12
+***
+
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class CharacterStream {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        try {
+            try ( 
+                    FileWriter fw = new FileWriter("charfile.txt")) {
+                fw.write("Jaanleva Java");
+            }
+
+            try ( 
+                    FileReader fr = new FileReader("charfile.txt")) {
+                int ch;
+                
+                while ((ch = fr.read()) != -1) {
+                    System.out.print((char) ch);
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+    
+***
+<img width="497" height="360" alt="image" src="https://github.com/user-attachments/assets/1ae5b5b1-85e6-4ae7-8671-2bc55ddfe8e5" />
 
 
 
