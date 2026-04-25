@@ -7,8 +7,11 @@
 
 [Program 4- Write a class for addition of two times where each time is given in hr, min and sec](#Assignment-4)
 
+[Program-5 Write a class for addition of two times where each timee is given in hr and min](#Assignment-5)
 
+[Program 6- Write a Java program to demonstrate the use of ArrayList by performing operations such as adding elements, removing elements, searching for an element, updating elements, and iterating through the list.](#Assignment-6)
 
+[Program 7 -Write a Java program to implement LinkedList and perform insertion at the beginning, middle, and end, along with deletion, searching, and displaying the elements.](#Assignment-7)
 
 
 ## Assighnment-1
@@ -315,6 +318,123 @@ class Time {
 
 <img width="488" height="453" alt="image" src="https://github.com/user-attachments/assets/b91582c3-44bd-4289-91da-35eb91e5835f" />
 
+## Assighnment-5
+***
+
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class Program5 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+
+class Time {
+    int hr, min;
+// Method to input time
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter hours: ");
+        hr = sc.nextInt();
+        System.out.print("Enter minutes: ");
+        min = sc.nextInt();
+    }
+
+    // Method to add two times
+    void add(Time t1, Time t2) {
+        min = t1.min + t2.min;
+        hr = t1.hr + t2.hr;
+
+        // Convert minutes to hours if >= 60
+        if (min >= 60) {
+            hr += min / 60;
+            min = min % 60;
+        }
+    }
+
+    // Display result
+    void display() {
+        System.out.println("Time = " + hr + " hours " + min + " minutes");
+    }
+}
+
+        Time t1 = new Time();
+        Time t2 = new Time();
+        Time result = new Time();
+
+        System.out.println("Enter First Time:");
+        t1.input();
+
+        System.out.println("Enter Second Time:");
+        t2.input();
+
+        result.add(t1, t2);
+
+        System.out.println("Sum of Times:");
+        result.display();
+    }
+}
+    
+***
+
+<img width="562" height="472" alt="image" src="https://github.com/user-attachments/assets/973ca92d-e6a9-4832-9dbb-0ecb625e3e42" />
 
 
+## Assighnment-6
+***
 
+import java .util.*;
+/**
+ *
+ * @author tiash
+ */
+public class ArraylistDemo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+
+        
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+        list.add("Orange");
+
+        System.out.println("Initial List: " + list);
+
+        
+        list.remove("Banana");
+        System.out.println("After removing Banana: " + list);
+
+        
+        if (list.contains("Mango")) {
+            System.out.println("Mango is found in the list");
+        } else {
+            System.out.println("Mango not found");
+        }
+
+        
+        list.set(1, "Grapes"); // replaces Mango
+        System.out.println("After updating index 1: " + list);
+
+        
+        System.out.println("Iterating using for-each loop:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+***
+
+<img width="512" height="461" alt="image" src="https://github.com/user-attachments/assets/75f72d60-892f-4453-8342-691d4d7d6a8f" />
+
+
+## Assighnment-7
+***
