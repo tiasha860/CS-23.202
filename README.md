@@ -23,6 +23,13 @@
 
 [Program 12- Implement File transfer/copy in Java using:Character Stream](#Assignment-12)
 
+[Program-13 Implement a Java class Division with methods for integer division, floating-point division, division with remainder, and dividing multiple numbers by a given divisor. Ensure division by zero is properly handled with exceptions.](#Assignment-13)
+
+[Program-14 Create a parent class and two child class having same method which override it in both child classes. Call the methods using a parent class reference.](#Assignment-14)
+
+[Program 15- Implement File transfer/copy in Java using:Primitive Data Stream](#Assignment-15)
+
+
 
 ## Assighnment-1
 ***
@@ -687,6 +694,155 @@ public class CharacterStream {
 ***
 <img width="497" height="360" alt="image" src="https://github.com/user-attachments/assets/1ae5b5b1-85e6-4ae7-8671-2bc55ddfe8e5" />
 
+## Assighnment-14
+***
+public class Program13 {
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        class Division {
+
+    // Integer division
+    int divideInt(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+
+    // Floating point division
+    double divideFloat(double a, double b) {
+        if (b == 0.0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+
+    // Division with remainder
+    int remainder(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a % b;
+    }
+
+    // Divide multiple numbers by a given divisor
+    void divideArray(int[] arr, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+
+        System.out.println("Dividing array elements:");
+        for (int num : arr) {
+            System.out.println(num + " / " + divisor + " = " + (num / divisor));
+        }
+    }
+}
+
+
+        Division d = new Division();
+
+        try {
+            System.out.println("Integer Division: " + d.divideInt(10, 2));
+            System.out.println("Float Division: " + d.divideFloat(10.5, 2.5));
+            System.out.println("Remainder: " + d.remainder(10, 3));
+
+            int[] numbers = {10, 20, 30, 40};
+            d.divideArray(numbers, 2);
+
+            // Test division by zero
+            System.out.println(d.divideInt(5, 0)); // will throw exception
+
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+    
+***
+<img width="512" height="444" alt="image" src="https://github.com/user-attachments/assets/7511ac82-009e-49d0-98b5-efb01574a602" >
+
+ 
+## Assighnment-14
+***
+    public class ParentChildclass {
+    static class Parent {
+        void show() {
+            System.out.println("This is Parent class method");
+        }
+    }
 
     
+    static class Child1 extends Parent {
+        @Override
+        void show() {
+            System.out.println("This is Child1 class method");
+        }
+    }
+
+    
+    static class Child2 extends Parent {
+        @Override
+        void show() {
+            System.out.println("This is Child2 class method");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Parent obj;
+
+        obj = new Child1();
+        obj.show();
+
+        obj = new Child2();
+        obj.show();
+    }
+}
+
+***
+<img width="593" height="395" alt="image" src="https://github.com/user-attachments/assets/1f129f27-f60c-4a91-a752-e072c55af495" />
+
+## Assighnment-15
+***
+
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class PrimitivedataStream {
+
+    /**
+     * @param args
+     */
+
+
+    public static void main(String[] args) {
+        try {
+            try ( // Writing
+                    DataOutputStream dos = new DataOutputStream(
+                            new FileOutputStream("data.txt"))) {
+                dos.writeInt(101);
+                dos.writeDouble(99.99);
+                dos.writeBoolean(true);
+            }
+
+            try ( 
+                    DataInputStream dis = new DataInputStream(
+                            new FileInputStream("data.txt"))) {
+                System.out.println(dis.readInt());
+                System.out.println(dis.readDouble());
+                System.out.println(dis.readBoolean());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }  
+    }
+}
+
+***    
+<img width="572" height="400" alt="image" src="https://github.com/user-attachments/assets/b7c0b00f-bc02-4d9e-8639-d25d0fd77c2e" />
