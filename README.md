@@ -37,9 +37,9 @@
 
 [Program 19- Write a Java Swing program that creates a GUI with buttons to draw and fill shapes (rectangle, oval) and change their colors (red, black) using the Graphics class.](#Assignment-19)
 
-[Program 20-Write a class for Dequeue](#Assignment-20)(#Assignment-20)
+[Program 20-Write a class for Dequeue](#Assignment-20)
 
-[Program 21-Write a class for Dequeue](#Assignment-21)(#Assignment-21)
+[Program 21-Write a class for Queue](#Assignment-21)
 
 
 
