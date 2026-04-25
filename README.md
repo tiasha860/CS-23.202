@@ -114,3 +114,73 @@ class Operations {
 
 <img width="664" height="517" alt="image" src="https://github.com/user-attachments/assets/80c6220a-97c2-415c-a539-82f7c4a71461" />
 
+
+[Program 2-Write a class to reverse an 1D array with necessary methods](#Assignment-2)
+
+## Assighnment-2
+***
+
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class ArrayReverse {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Array1D a = new Array1D();
+
+        a.input();
+        a.reverse();
+        a.output();
+    }
+}
+
+class Array1D {
+    int arr[];
+    int n;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter size:");
+        n = sc.nextInt();
+
+        arr = new int[n];
+
+        System.out.println("Enter elements:");
+        for(int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+    }
+
+    void reverse() {
+        for(int i=0; i<n/2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n-i-1];
+            arr[n-i-1] = temp;
+        }
+    }
+
+    void output() {
+        System.out.println("Reversed Array:");
+        for(int i=0; i<n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+***    
+ <img width="691" height="478" alt="image" src="https://github.com/user-attachments/assets/9c11c8ea-5813-435c-8f82-65544539b431" />
+   
+
+
+
+
+
+
+
+
