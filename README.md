@@ -17,7 +17,7 @@
 
 [Program 9- Write a Java program to implement HashMap and perform operations such as inserting key-value pairs, retrieving values using keys, removing entries, and iterating through the map.](#Assignment-9)
 
-[Program 10- Write a Java program to demonstrate Hashtable ]
+[Program 10- Write a Java program to demonstrate Hashtable ](#Assignment-10)
 
 
 
