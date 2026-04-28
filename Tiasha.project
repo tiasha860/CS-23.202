@@ -1,0 +1,1622 @@
+## Assighnment-1
+***
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class AllProgram {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+     
+     Operations obj = new Operations();
+
+        obj.factorial();
+        obj.armstrong();
+        obj.swap();
+        obj.reverse();
+        obj.prime();
+    }
+}
+
+class Operations {
+
+    Scanner sc = new Scanner(System.in);
+
+    void factorial() {
+        System.out.println("\n--- Factorial ---");
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int fact = 1;
+        for(int i=1; i<=n; i++)
+            fact *= i;
+
+        System.out.println("Factorial = " + fact);
+    }
+
+    void armstrong() {
+        System.out.println("\n--- Armstrong ---");
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int sum = 0, r, temp = n;
+
+        while(n > 0) {
+            r = n % 10;
+            sum += r*r*r;
+            n /= 10;
+        }
+
+        if(sum == temp)
+            System.out.println("Armstrong number");
+        else
+            System.out.println("Not Armstrong");
+    }
+
+    void swap() {
+        System.out.println("\n--- Swap ---");
+        System.out.print("Enter two numbers: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println("After swap: a=" + a + " b=" + b);
+    }
+
+    void reverse() {
+        System.out.println("\n--- Reverse Number ---");
+        System.out.print("Enter numbers: ");
+        int n = sc.nextInt();
+
+        int rev = 0, r;
+
+        while(n > 0) {
+            r = n % 10;
+            rev = rev * 10 + r;
+            n /= 10;
+        }
+
+        System.out.println("Reverse = " + rev);
+    }
+
+    void prime() {
+        System.out.println("\n--- Prime Number ---");
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int flag = 1;
+
+        for(int i=2; i<=n/2; i++) {
+            if(n % i == 0) {
+                flag = 0;
+                break;
+            }
+        }
+
+        if(flag == 1 && n > 1)
+            System.out.println("Prime number");
+        else
+            System.out.println("Not Prime");
+    }
+}
+    
+    
+## Assighnment-2
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java .util.*;
+/**
+ *
+ * @author tiash
+ */
+public class ArraylistDemo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+
+        // 🔹 1. Add elements
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+        list.add("Orange");
+
+        System.out.println("Initial List: " + list);
+
+        // 🔹 2. Remove element
+        list.remove("Banana");
+        System.out.println("After removing Banana: " + list);
+
+        // 🔹 3. Search element
+        if (list.contains("Mango")) {
+            System.out.println("Mango is found in the list");
+        } else {
+            System.out.println("Mango not found");
+        }
+
+        // 🔹 4. Update element
+        list.set(1, "Grapes"); // replaces Mango
+        System.out.println("After updating index 1: " + list);
+
+        // 🔹 5. Iterate through list
+        System.out.println("Iterating using for-each loop:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+
+
+## Assighnment-3
+***
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class ArrayReverse {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Array1D a = new Array1D();
+
+        a.input();
+        a.reverse();
+        a.output();
+    }
+}
+
+class Array1D {
+    int arr[];
+    int n;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter size:");
+        n = sc.nextInt();
+
+        arr = new int[n];
+
+        System.out.println("Enter elements:");
+        for(int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+    }
+
+    void reverse() {
+        for(int i=0; i<n/2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n-i-1];
+            arr[n-i-1] = temp;
+        }
+    }
+
+    void output() {
+        System.out.println("Reversed Array:");
+        for(int i=0; i<n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+    
+    
+## Assighnment-4
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class ByteFilecopy {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+
+
+    public static void main(String[] args) {
+        try {
+            FileOutputStream fos;
+            try (FileInputStream fis = new FileInputStream("source.txt")) {
+                fos = new FileOutputStream("dest.txt");
+                int b;
+                while ((b = fis.read()) != -1) {
+                    fos.write(b);
+                }
+            }
+            fos.close();
+
+            System.out.println("File copied");
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class Bytestream {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        try {
+            try ( // Writing
+                    FileOutputStream fos = new FileOutputStream("bytefile.txt")) {
+                fos.write("Tiasha and Sia are best friends".getBytes());
+            }
+
+            try ( // Reading
+                    FileInputStream fis = new FileInputStream("bytefile.txt")) {
+                int b;
+                
+                while ((b = fis.read()) != -1) {
+                    System.out.print((char) b);
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+    
+    
+## Assighnment-5
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+ import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class CharacterStream {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        try {
+            try ( 
+                    FileWriter fw = new FileWriter("charfile.txt")) {
+                fw.write("Jaanleva Java");
+            }
+
+            try ( 
+                    FileReader fr = new FileReader("charfile.txt")) {
+                int ch;
+                
+                while ((ch = fr.read()) != -1) {
+                    System.out.print((char) ch);
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+    
+    
+## Assighnment-6
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class CharFilecopy {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        try {
+            FileWriter fw;
+            try (FileReader fr = new FileReader("source.txt")) {
+                fw = new FileWriter("dest.txt");
+                int ch;
+                while ((ch = fr.read()) != -1) {
+                    fw.write(ch);
+                }
+            }
+            fw.close();
+
+            System.out.println("File copied");
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+
+## Assighnment-7
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.ArrayDeque;
+import java.util.Deque;
+/**
+ *
+ * @author tiash
+ */
+public class DequeExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    Deque<Integer> dq = new ArrayDeque<>();
+
+        dq.addFirst(10);
+        dq.addLast(20);
+        dq.addFirst(5);
+
+        System.out.println("Deque: " + dq);
+
+        System.out.println("First: " + dq.getFirst());
+        System.out.println("Last: " + dq.getLast());
+
+        dq.removeFirst();
+        dq.removeLast();
+
+        System.out.println("After removal: " + dq);
+    
+    }
+    
+}
+
+
+## Assighnment-8
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class Dist2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Distance d1 = new Distance();
+        Distance d2 = new Distance();
+        Distance d3 = new Distance();
+
+        d1.input();
+        d2.input();
+
+        d3.add(d1, d2);
+        d3.output();
+    }
+}
+
+class Distance {
+    int m;
+    int cm;
+    int mm;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter meters:");
+        m = sc.nextInt();
+
+        System.out.println("Enter centimeters:");
+        cm = sc.nextInt();
+
+        System.out.println("Enter millimeters:");
+        mm = sc.nextInt();
+    }
+
+    void output() {
+        System.out.println("Result:");
+        System.out.println(m + " m " + cm + " cm " + mm + " mm");
+    }
+
+    void add(Distance o1, Distance o2) {
+
+        mm = o1.mm + o2.mm;
+        cm = o1.cm + o2.cm + (mm / 10);
+        m  = o1.m  + o2.m  + (cm / 100);
+
+        mm = mm % 10;
+        cm = cm % 100;
+    }
+}
+
+## Assighnment-9
+***
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java .util.HashMap;
+/**
+ *
+ * @author tiash
+ */
+public class HashMapExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+
+        // Create HashMap
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // 🔹 Insert key-value pairs
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+
+        System.out.println("HashMap: " + map);
+
+        // 🔹 Retrieve value using key
+        System.out.println("Value for key 2: " + map.get(2));
+
+        // 🔹 Remove entry
+        map.remove(3);
+        System.out.println("After removal: " + map);
+
+        // 🔹 Iterate through map
+        System.out.println("Iterating elements:");
+        for (Integer key : map.keySet()) {
+            System.out.println(key + " -> " + map.get(key));
+        }
+    }
+}
+
+## Assighnment-10
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Hashtable;
+/**
+ *
+ * @author tiash
+ */
+public class HashtableExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    Hashtable<Integer, String> ht = new Hashtable<>();
+
+        ht.put(10, "A");
+        ht.put(20, "B");
+
+        System.out.println(ht.get(10));    
+    }
+    
+}
+
+## Assighnment-11
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.*;
+
+/**
+ *
+ * @author tiash
+ */
+public class LinkedlistDemo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        
+        LinkedList<String> list = new LinkedList<>();
+
+        
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+
+        
+        list.addFirst("Orange");
+
+        
+        list.add(2, "Grapes");
+
+        System.out.println("After Insertions: " + list);
+
+        
+        list.remove("Banana");   
+        list.remove(1);          
+
+        System.out.println("After Deletions: " + list);
+
+        // 🔹 Search element
+        if (list.contains("Mango")) {
+            System.out.println("Mango is found in the list");
+        } else {
+            System.out.println("Mango not found");
+        }
+
+        // 🔹 Display elements
+        System.out.println("Displaying elements:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+
+
+## Assighnment-12
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class MatrixOps {
+
+    /**
+     * @param args the command line arguments
+     */
+     public static void main(String[] args) {
+
+        Matrix m1 = new Matrix();
+        Matrix m2 = new Matrix();
+        Matrix result = new Matrix();
+
+        m1.input();
+        m2.input();
+
+        result.add(m1, m2);
+        result.output("Addition");
+
+        result.multiply(m1, m2);
+        result.output("Multiplication");
+
+        m1.transpose();
+        m1.output("Transpose of First Matrix");
+
+        m1.sumRows();
+        m1.sumCols();
+        m1.sumDiagonals();
+    }
+}
+
+class Matrix {
+    int a[][] = new int[2][2];
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter matrix elements:");
+
+        for(int i=0;i<2;i++)
+            for(int j=0;j<2;j++)
+                a[i][j] = sc.nextInt();
+    }
+
+    void add(Matrix m1, Matrix m2) {
+        for(int i=0;i<2;i++)
+            for(int j=0;j<2;j++)
+                a[i][j] = m1.a[i][j] + m2.a[i][j];
+    }
+
+    void multiply(Matrix m1, Matrix m2) {
+        int temp[][] = new int[2][2];
+
+        for(int i=0;i<2;i++) {
+            for(int j=0;j<2;j++) {
+                temp[i][j]=0;
+                for(int k=0;k<2;k++) {
+                    temp[i][j]+= m1.a[i][k]*m2.a[k][j];
+                }
+            }
+        }
+        a = temp;
+    }
+
+    void transpose() {
+        for(int i=0;i<2;i++) {
+            for(int j=i+1;j<2;j++) {
+                int temp = a[i][j];
+                a[i][j] = a[j][i];
+                a[j][i] = temp;
+            }
+        }
+    }
+
+    void sumRows() {
+        for(int i=0;i<2;i++) {
+            int sum=0;
+            for(int j=0;j<2;j++)
+                sum += a[i][j];
+            System.out.println("Row " + i + " sum = " + sum);
+        }
+    }
+
+    void sumCols() {
+        for(int j=0;j<2;j++) {
+            int sum=0;
+            for(int i=0;i<2;i++)
+                sum += a[i][j];
+            System.out.println("Column " + j + " sum = " + sum);
+        }
+    }
+
+    void sumDiagonals() {
+        int d1=0, d2=0;
+
+        for(int i=0;i<2;i++) {
+            d1 += a[i][i];
+            d2 += a[i][1-i];
+        }
+
+        System.out.println("Primary diagonal sum = " + d1);
+        System.out.println("Secondary diagonal sum = " + d2);
+    }
+
+    void output(String msg) {
+        System.out.println(msg + ":");
+        for(int i=0;i<2;i++) {
+            for(int j=0;j<2;j++)
+                System.out.print(a[i][j] + " ");
+            System.out.println();
+        }
+    }
+}
+    
+    
+## Assighnment-13
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author tiash
+ */
+public class ParentChildclass {
+
+    static class Parent {
+        void show() {
+            System.out.println("This is Parent class method");
+        }
+    }
+
+    
+    static class Child1 extends Parent {
+        @Override
+        void show() {
+            System.out.println("This is Child1 class method");
+        }
+    }
+
+    
+    static class Child2 extends Parent {
+        @Override
+        void show() {
+            System.out.println("This is Child2 class method");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Parent obj;
+
+        obj = new Child1();
+        obj.show();
+
+        obj = new Child2();
+        obj.show();
+    }
+}
+
+
+## Assighnment-14
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.io.*;
+/**
+ *
+ * @author tiash
+ */
+public class PrimitivedataStream {
+
+    /**
+     * @param args
+     */
+
+
+    public static void main(String[] args) {
+        try {
+            try ( // Writing
+                    DataOutputStream dos = new DataOutputStream(
+                            new FileOutputStream("data.txt"))) {
+                dos.writeInt(101);
+                dos.writeDouble(99.99);
+                dos.writeBoolean(true);
+            }
+
+            try ( 
+                    DataInputStream dis = new DataInputStream(
+                            new FileInputStream("data.txt"))) {
+                System.out.println(dis.readInt());
+                System.out.println(dis.readDouble());
+                System.out.println(dis.readBoolean());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }  
+    }
+}
+
+    
+## Assighnment-15
+***
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class Program5 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+
+class Time {
+    int hr, min;
+// Method to input time
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter hours: ");
+        hr = sc.nextInt();
+        System.out.print("Enter minutes: ");
+        min = sc.nextInt();
+    }
+
+    // Method to add two times
+    void add(Time t1, Time t2) {
+        min = t1.min + t2.min;
+        hr = t1.hr + t2.hr;
+
+        // Convert minutes to hours if >= 60
+        if (min >= 60) {
+            hr += min / 60;
+            min = min % 60;
+        }
+    }
+
+    // Display result
+    void display() {
+        System.out.println("Time = " + hr + " hours " + min + " minutes");
+    }
+}
+
+        Time t1 = new Time();
+        Time t2 = new Time();
+        Time result = new Time();
+
+        System.out.println("Enter First Time:");
+        t1.input();
+
+        System.out.println("Enter Second Time:");
+        t2.input();
+
+        result.add(t1, t2);
+
+        System.out.println("Sum of Times:");
+        result.display();
+    }
+}
+    
+    
+## Assighnment-16
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author tiash
+ */
+public class Program13 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        class Division {
+
+    // Integer division
+    int divideInt(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+
+    // Floating point division
+    double divideFloat(double a, double b) {
+        if (b == 0.0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+
+    // Division with remainder
+    int remainder(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a % b;
+    }
+
+    // Divide multiple numbers by a given divisor
+    void divideArray(int[] arr, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+
+        System.out.println("Dividing array elements:");
+        for (int num : arr) {
+            System.out.println(num + " / " + divisor + " = " + (num / divisor));
+        }
+    }
+}
+
+
+        Division d = new Division();
+
+        try {
+            System.out.println("Integer Division: " + d.divideInt(10, 2));
+            System.out.println("Float Division: " + d.divideFloat(10.5, 2.5));
+            System.out.println("Remainder: " + d.remainder(10, 3));
+
+            int[] numbers = {10, 20, 30, 40};
+            d.divideArray(numbers, 2);
+
+            // Test division by zero
+            System.out.println(d.divideInt(5, 0)); // will throw exception
+
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+    
+    
+## Assighnment-17
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author tiash
+ */
+public class Program16 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        class ClassA {
+    void printNumbers() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("ClassA: " + i);
+        }
+    }
+}
+
+class ClassB {
+    void printNumbers() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("ClassB: " + i);
+        }
+    }
+}
+
+class ClassC {
+    void printNumbers() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("ClassC: " + i);
+        }
+    }
+}
+
+
+        ClassA a = new ClassA();
+        ClassB b = new ClassB();
+        ClassC c = new ClassC();
+
+        a.printNumbers();
+        b.printNumbers();
+        c.printNumbers();
+    }
+}
+    
+    
+## Assighnment-18
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author tiash
+ */
+public class Program18 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        class MyRunnable implements Runnable {
+
+    String name;
+
+    MyRunnable(String name) {
+        this.name = name;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(name + ": " + i);
+        }
+    }
+}
+
+
+
+        Thread t1 = new Thread(new MyRunnable("Thread1"));
+        Thread t2 = new Thread(new MyRunnable("Thread2"));
+        Thread t3 = new Thread(new MyRunnable("Thread3"));
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+    
+    
+## Assighnment-19
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.LinkedList;
+import java.util.Queue;
+/**
+ *
+ * @author tiash
+ */
+public class QueueExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    Queue<Integer> q = new LinkedList<>();
+
+        q.add(10);
+        q.add(20);
+        q.add(30);
+
+        System.out.println("Queue: " + q);
+
+        System.out.println("Head: " + q.peek());
+
+        q.poll();
+
+        System.out.println("After removal: " + q);    
+    }
+    
+}
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton4" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Panel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Panel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rectangle "/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Oval"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Red"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Black"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="Panel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="342" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="317" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+  </SubComponents>
+</Form>
+
+
+## Assighnment-20
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+
+
+/**
+ *
+ * @author tiash
+ */
+public class Shapes extends javax.swing.JFrame {
+String shape = "";
+java.awt.Color color = java.awt.Color.BLACK;
+    /**
+     * Creates new form Shapes
+     */
+    public Shapes() {
+        initComponents();
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        Panel1 = new javax.swing.JPanel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Rectangle ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Oval");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Red");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Black");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
+        Panel1.setLayout(Panel1Layout);
+        Panel1Layout.setHorizontalGroup(
+            Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 342, Short.MAX_VALUE)
+        );
+        Panel1Layout.setVerticalGroup(
+            Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 317, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(42, 42, 42)
+                                .addComponent(jButton2)
+                                .addGap(25, 25, 25)
+                                .addComponent(jButton3)
+                                .addGap(49, 49, 49)
+                                .addComponent(jButton4)))))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        shape = "rect";
+    repaint();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        shape = "oval";
+    repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        color = java.awt.Color.RED;
+    repaint();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        color = java.awt.Color.BLACK;
+    repaint();
+    }//GEN-LAST:event_jButton4ActionPerformed
+     @Override
+public void paint(java.awt.Graphics g) {
+    super.paint(g);
+
+    g.setColor(color);
+
+    if (shape.equals("rect")) {
+        g.fillRect(100, 150, 150, 80);
+    } else if (shape.equals("oval")) {
+        g.fillOval(100, 150, 150, 80);
+    }
+} 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Shapes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Shapes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Shapes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Shapes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Shapes().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JPanel jPanel1;
+    // End of variables declaration//GEN-END:variables
+}
+
+## Assighnment-21
+***
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.*;
+/**
+ *
+ * @author tiash
+ */
+public class StackExample {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        // 🔹 Push elements
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println("Stack: " + stack);
+
+        // 🔹 Peek (top element)
+        System.out.println("Top element: " + stack.peek());
+
+        // 🔹 Pop (remove top)
+        System.out.println("Popped element: " + stack.pop());
+
+        System.out.println("Stack after pop: " + stack);
+
+        // 🔹 Check if empty
+        if (stack.isEmpty()) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Stack is not empty");
+        }
+    }
+}
+
+
+ ## Assighnment-22
+ ***
+    
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author tiash
+ */
+public class threeclassmethods {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        class ClassA {
+    void printNumbers() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("ClassA: " + i);
+        }
+    }
+}
+
+class ClassB {
+    void printNumbers() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("ClassB: " + i);
+        }
+    }
+}
+
+class ClassC {
+    void printNumbers() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("ClassC: " + i);
+        }
+    }
+}
+
+
+        ClassA a = new ClassA();
+        ClassB b = new ClassB();
+        ClassC c = new ClassC();
+
+        a.printNumbers();
+        b.printNumbers();
+        c.printNumbers();
+    }
+}
+    
+    
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+import java.util.Scanner;
+
+/**
+ *
+ * @author tiash
+ */
+public class Time2 {
+
+    /**
+     * @param args the command line arguments
+     */
+     public static void main(String[] args) {
+
+        Time t1 = new Time();
+        Time t2 = new Time();
+        Time t3 = new Time();
+
+        t1.input();
+        t2.input();
+
+        t3.add(t1, t2);
+        t3.output();
+    }
+}
+
+class Time {
+    int hr;
+    int min;
+    int sec;
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter hours:");
+        hr = sc.nextInt();
+
+        System.out.println("Enter minutes:");
+        min = sc.nextInt();
+
+        System.out.println("Enter seconds:");
+        sec = sc.nextInt();
+    }
+
+    void output() {
+        System.out.println("Result:");
+        System.out.println(hr + " hr " + min + " min " + sec + " sec");
+    }
+
+    void add(Time t1, Time t2) {
+
+        sec = t1.sec + t2.sec;
+        min = t1.min + t2.min + (sec / 60);
+        hr  = t1.hr  + t2.hr  + (min / 60);
+
+        sec = sec % 60;
+        min = min % 60;
+    }
+}
+
