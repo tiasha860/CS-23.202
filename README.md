@@ -43,6 +43,8 @@
 
 [Program 22-Write a class for Matrix Operations](#Assignment-22)
 
+[Program-23 Make a calculator using Add, Sub ,Multiply and Division and show outputs](#Assignment-23)
+
 
 
 
@@ -1386,6 +1388,56 @@ class Matrix {
 }
 ***
 <img width="570" height="469" alt="image" src="https://github.com/user-attachments/assets/9c369266-5a87-4b6e-8014-76d7c92e6522" />
+
+    
+## Assighnment-23
+***
+import java.util.Scanner;
+/**
+ *
+ * @author tiash
+ */
+public class Calculator {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        try (Scanner sc = new Scanner(System.in)) {
+            double a, b;
+            int choice;
+            System.out.println("Enter first number:");
+            a = sc.nextDouble();
+            System.out.println("Enter second number:");
+            b = sc.nextDouble();
+            System.out.println("\nChoose operation:");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            choice = sc.nextInt();
+            switch(choice) {
+                case 1 -> System.out.println("Result: " + (a + b));
+                    
+                case 2 -> System.out.println("Result: " + (a - b));
+                    
+                case 3 -> System.out.println("Result: " + (a * b));
+                    
+                case 4 -> {
+                    if (b != 0)
+                        System.out.println("Result: " + (a / b));
+                    else
+                        System.out.println("Cannot divide by zero");
+                }
+                    
+                default -> System.out.println("Invalid choice");
+            }
+        }
+    }
+}
+***
+<img width="571" height="377" alt="image" src="https://github.com/user-attachments/assets/d7088599-53d7-4674-b874-1733e9b36f0c" />
 
     
 
